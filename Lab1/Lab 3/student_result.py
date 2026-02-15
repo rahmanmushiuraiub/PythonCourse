@@ -5,6 +5,13 @@ this is cli application to calculate student result
 and possibly to export them to csv file
 """
 
+#helper function
+
+#app functionalities implementation
+
+def add_students(students: list[dict]) -> None:
+    sid = 
+
 #user interface
 # cli menu printing function(function= reusable codeblocks)
 
@@ -19,6 +26,8 @@ def print_menu() -> None:   #def=define,dynamically,statically,strongly,weakly t
 
 #main function -- do not start run code from here
 def main() -> None:
+    #list to contain students like key value pairs--id,name,credit of a students
+   students: list[dict] = []
 
     while True:  #boolean capital letter
          print_menu()
