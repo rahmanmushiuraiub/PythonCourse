@@ -66,11 +66,41 @@ def grade_from_percentage(pct: float) -> str:
     else:
         return "F"
 
-        
+
 #app functionalities implementation
 
 def add_students(students: list[dict]) -> None:
-    sid = 
+    sid = prompt_non_empty("Enter student Id: ")
+    name = clean_name(prompt_non_empty("Enter student name: "))
+    n = prompt_int("Enter number of subjects: ", min_val=1, max_val=10)
+
+    subjects: list[str] = []
+    marks: list[float] = []
+
+    for i in range(n):
+        sub = prompt_non_empty(f"Enter name of subject {i + 1}: ")
+        sub = sub.strip().title()
+        subjects.append(sub)
+
+        mk = prompt_float(f"Enter marks for {sub}: ", min_val=0.0, max_val=100.0)
+        marks.append(mk)
+
+        # compute
+        total, pct = compute_total_and_percentage(marks)
+        grade = grade_from_percentage(pct)
+        status = "Pass" if grade != "F" else "Fail"
+
+        student = {
+            "Id": sid,
+            "Name": name,
+            "Subjects": subjects,
+            "Total": total,
+            "Percentage": pct,
+            "Grade": grade,
+            "Status": status
+        }
+        students.append(student)
+
 
 #user interface
 # cli menu printing function(function= reusable codeblocks)
