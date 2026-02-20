@@ -6,7 +6,16 @@ and possibly to export them to csv file
 """
 
 #helper function
+def prompt_non_empty(prompt: str) -> str:
+    while True:
+        s = input(prompt).strip()
+        if s:
+            return s
+        print("Empty input is not allowed. Try again.")
 
+def clean_name(raw_name: str) -> str:
+    return raw_name.strip().title()
+    
 #app functionalities implementation
 
 def add_students(students: list[dict]) -> None:
